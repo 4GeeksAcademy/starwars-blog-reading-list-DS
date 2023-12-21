@@ -1,43 +1,66 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			characters: [],
+			planets: [],
+			starships: [],
+			vehicles: [],
+			favorites: []
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+			getPlanets: () => {
+				fetch('https://swapi.dev/api/planets')
+					.then(res => res.json())
+					.then(data => setStore({ planets: data.results }))
+					.catch(err => console.error(err))
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+			getStarships: () => {
+				fetch('https://swapi.dev/api/starships')
+					.then(res => res.json())
+					.then(data => setStore({ starships: data.results }))
+					.catch(err => console.error(err))
+			},
 
-				//reset the global store
-				setStore({ demo: demo });
+			getVehicles: () => {
+				fetch('https://swapi.dev/api/vehicles')
+					.then(res => res.json())
+					.then(data => setStore({ vehicles: data.results }))
+					.catch(err => console.error(err))
+			},
+
+			getCharacters: () => {
+				fetch('https://swapi.dev/api/people')
+					.then(resp => {
+						console.log("Fetch people/characters: " + resp.ok);
+						console.log("status code: " + resp.status);
+						return resp.json();
+					})
+					.then(data => {
+						console.log(data)
+						setStore({ characters: data.results })
+					})
+
+					.catch(error => {
+						console.log(error)
+					})
+			},
+
+			addToFavs: (name) => {
+				let store = getStore()
+				store.favorites.push(name)
+				setStore(store)
+			},
+
+			deleteFavorite: (i) => {
+				let store = getStore()
+				let newFavorites = store.favorites.filter((item, index) => index != i)
+				setStore({ favorites: newFavorites })
 			}
+
 		}
 	};
 };

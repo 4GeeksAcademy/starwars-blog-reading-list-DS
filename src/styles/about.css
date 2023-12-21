@@ -1,0 +1,23 @@
+
+.about-img {img {
+    height: 400px;
+    width: 300px;
+}
+}
+
+.top-text{
+    padding:20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-info, p {
+    margin: 10px;
+}

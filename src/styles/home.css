@@ -1,0 +1,55 @@
+body {
+    background-color: black;
+    overflow-x: hidden;
+}
+
+h2 {
+    color: white;
+    text-align: start;
+    margin: 10px;
+}
+
+.container-home {
+    background-image: url("https://images.unsplash.com/photo-1520034475321-cbe63696469a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: auto;
+    margin: 0 auto;
+}
+
+.container-cards-home {
+    background: black;
+}
+
+.card {
+    width: 300px;
+    margin: 10px;
+    background-color: black;
+    border: solid rgba(128, 128, 128, 0.6);
+    padding: 0px;
+    color: white;
+}
+
+.logo-starwars {
+    width: 200px;
+    margin-left: 550px;
+}
+
+.navbar-background {
+    background: black;
+    border-bottom: 1px rgba(97, 97, 97, 0.8) solid;
+}
+
+.background-title-sections {
+    display: flex;
+    justify-content: center;
+    background: black;
+    padding: 10px 0px;
+    font-size: 34px;
+    margin: 10px;
+    width: 20%;
+    border-radius: 10px;
+    margin: 15px auto;
+    box-shadow: rgba(218, 219, 138, 0.1) 0px 5px 20px 0px, rgba(230, 204, 121, 0.06) 0px 0px 0px 1px;
+}
