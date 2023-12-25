@@ -8,6 +8,7 @@ export const Home = () => {
 	const { store, actions } = useContext(Context)
 	return (
 		<div className="text-center container-fluid container-home p-4">
+
 			<div className="container">
 
 				<h2 className="background-title-sections">Characters</h2>

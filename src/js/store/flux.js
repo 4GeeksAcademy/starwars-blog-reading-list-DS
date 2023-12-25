@@ -62,6 +62,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorites: newFavorites });
 			},
 
+			toggleFavorite: (item) => {
+				let store = getStore();
+				let isFavorite = store.favorites.some(fav => fav.name === item.name);
+
+				if (isFavorite) {
+					// Si ya es un favorito, elimínalo
+					let newFavorites = store.favorites.filter(fav => fav.name !== item.name);
+					setStore({ favorites: newFavorites });
+					console.log("Esto es el console.log para QUITAR favorito", newFavorites)
+				} else {
+					// Si no es un favorito, agrégalo
+					let newFavorites = [...store.favorites, item];
+					setStore({ favorites: newFavorites });
+					console.log("Esto es el console.log para AGREGAR favorito", newFavorites)
+				}
+			},
+
 		}
 	};
 };

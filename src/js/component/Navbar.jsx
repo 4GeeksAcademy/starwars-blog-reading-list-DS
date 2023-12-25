@@ -15,25 +15,23 @@ const Navbar = () => {
 				</Link>
 
 				<div className="dropdown">
-					<button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<button className="btn btn-secondary dropdown-toggle" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
 						Favorites
 					</button>
 					<ul className="dropdown-menu">
-						{store.favorites.map((item, i) => {
-							return (
-								<li key={i} className="px-1">
+						{store.favorites.map((item, i) => (
+							<li key={i} className="px-1 dropdown-item container-favoritos-dropdown">
 
-										<div>
-											{item.name}
-										</div>
+								<div className="nombre-favoritos">
+									<strong>{item.name}</strong>
+								</div>
 
-										<div onClick={() => actions.deleteFavorite(i)}>
-											<i className="fa-solid fa-trash-can"></i>
-										</div>
+								<div className="eliminar-favoritos" onClick={() => actions.toggleFavorite(item)}>
+									<i className="fa-solid fa-trash-can"></i>
+								</div>
 
-								</li>
-							)
-						})}
+							</li>
+						))}
 					</ul>
 				</div>
 

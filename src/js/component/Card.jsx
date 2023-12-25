@@ -46,7 +46,7 @@ const Card = (props) => {
                     <Link to={`/about/${props.type}/${props.id}`}>
                         <span className="btn btn-primary">Learn More!</span>
                     </Link>
-                    <button className="btn btn-outline-warning" onClick={() => { actions.addToFavs(props.type, props.id) }}>
+                    <button className="btn btn-outline-warning" onClick={() => actions.toggleFavorite(props.item)}>
                         <i className={"fa-heart " + (store.favorites.some(fav => fav.name === props.item.name) ? "fa-solid" : "fa-regular")}></i>
                     </button>
                 </div>
