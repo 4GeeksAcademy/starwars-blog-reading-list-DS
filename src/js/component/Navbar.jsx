@@ -22,15 +22,15 @@ const Navbar = () => {
 						{store.favorites.map((item, i) => {
 							return (
 								<li key={i} className="px-1">
-									<a className="dropdown-item" href="#">
+
 										<div>
-											{item}
+											{item.name}
 										</div>
 
 										<div onClick={() => actions.deleteFavorite(i)}>
 											<i className="fa-solid fa-trash-can"></i>
 										</div>
-									</a>
+
 								</li>
 							)
 						})}
