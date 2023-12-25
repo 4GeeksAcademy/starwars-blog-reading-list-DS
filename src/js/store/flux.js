@@ -49,10 +49,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 			},
 
-			addToFavs: (name) => {
-				let store = getStore()
-				store.favorites.push(name)
-				setStore(store)
+			addToFavs: (type, id) => {
+				let store = getStore();
+				let item = store[type][id];
+				let newFavorites = [...store.favorites, item];
+				setStore({ favorites: newFavorites });
 			},
 
 			deleteFavorite: (i) => {

@@ -43,11 +43,11 @@ const Card = (props) => {
                     </>
                 ) : null}
                 <div className="d-flex justify-content-between">
-                    <Link to={"/about/" + props.type + "/" + props.id}>
+                    <Link to={`/about/${props.type}/${props.id}`}>
                         <span className="btn btn-primary">Learn More!</span>
                     </Link>
-                    <button className="btn btn-outline-warning" onClick={() => { actions.addToFavs(props.item.name) }}>
-                        <i className={"fa-heart " + (store.favorites.includes(props.item.name) ? "fa-solid" : "fa-regular")}></i>
+                    <button className="btn btn-outline-warning" onClick={() => { actions.addToFavs(props.type, props.id) }}>
+                        <i className={"fa-heart " + (store.favorites.includes(props.item) ? "fa-solid" : "fa-regular")}></i>
                     </button>
                 </div>
             </div>

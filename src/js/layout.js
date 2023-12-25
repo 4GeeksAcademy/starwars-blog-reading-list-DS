@@ -15,7 +15,7 @@ const Layout = () => {
 				<Navbar />
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/about/:info" element={<About />} />
+					<Route path="/about/:type/:id" element={<About />} />
 					<Route path="*" element={<h1 className="text-white text-center pt-3">Data lost in far away lands!</h1>} />
 				</Routes>
 			</BrowserRouter>
